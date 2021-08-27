@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    <div class="container" >{{ user.username }}</div>
+    <div class="container"><a href="{% url 'logout' %}">Log Out</a></div>
+    
+    <div class="rd">
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>Route Distinguisher</th>
+                <th>Nombre del Tecnico</th>
+                <th>Eventum</th>
+                <th>Fecha</th>
+                <th>Nombre del Cliente</th>
+                <th>N. de Linea</th>
+                <th>Estado</th>
+            </tr>
+            {% for rd in object_list %}
+            <tr>
+                <td>11830:{{rd.rd}}</td>
+                <td>{{rd.tec}}</td>
+                <td>{{rd.eventum}}</td>
+                <td>{{rd.date}}</td>
+                <td>{{rd.client}}</td>
+                <td>{{rd.numline}}</td>
+                <td>{{rd.status}}</td>
+                <td><a class="nav-item nav-link" href="" aria-label="Login">
+                        <i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+            </tr>
+            {% endfor %}
+    
+        </table>
+    
+    </div>
+
+{% else %}
+<p>You are not logged in</p>
+<a href="{% url 'login' %}">Log in</a> | <a href="{% url 'signup' %}"> Sign Up</a>
+{% endif %}
+
+
+
+{% endblock content %}
