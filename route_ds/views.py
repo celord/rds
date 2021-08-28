@@ -1,5 +1,7 @@
-from django.views.generic import TemplateView
+from django.views.generic import ListView
 
+from .models import RouteDs
 
-class HomePageView(TemplateView):
+class RoutedsListView(ListView):
+    model = RouteDs
     template_name = 'home.html'
