@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="rds-detail">
+       
+    <table>
+        <tr>
+            <th>Route Distinguisher</th>
+            <th>Nombre del Tecnico</th>
+            <th>Eventum</th>
+            <th>Fecha</th>
+            <th>Nombre del Cliente</th>
+            <th>N. de Linea</th>
+        </tr>
+        
+        <tr>
+            <td>{{object.rd}}</td>
+            <td>{{object.tec}}</td>
+            <td>{{object.eventum}}</td>
+            <td>{{object.date}}</td>
+            <td>{{object.client}}</td>
+            <td>{{object.numline}}</td>
+            <td>{{object.status}}</td>
+        </tr>
+        
+    </table>
+        
+</div>
+{% endblock content %}

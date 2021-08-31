@@ -30,4 +30,4 @@ class RouteDs(models.Model):
         return self.rd
 
     def get_absolute_url(self):
-        return reverse("rds_detail", kwargs={"pk": self.pk})
+        return reverse("routeds_detail", kwargs={"pk": self.pk})
