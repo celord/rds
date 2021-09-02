@@ -1,7 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import query
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.db.models import Q
 
 from .models import RouteDs
 
@@ -42,3 +44,16 @@ class RoutedsDeleteView(LoginRequiredMixin, DeleteView):
     login_url = 'login'
     template_name = 'routeds_detele.html'
     success_url = reverse_lazy('home')
+
+
+class SearchRdsView(ListView):
+    model = RouteDs
+    template_name = 'rds_search.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        return RouteDs.objects.filter(
+            Q(rd__icontains=query)
+        )
+    
+
