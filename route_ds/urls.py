@@ -3,7 +3,8 @@ from .views import (RoutedsListView,
                     RoutedsUpdateView,
                     RoutedsDetailView,
                     RoutedsDeleteView,
-                    RoutedsCreateView)
+                    RoutedsCreateView,
+                    SearchRdsView)
 
 urlpatterns = [
     path('', RoutedsListView.as_view(), name='home'),
@@ -11,5 +12,6 @@ urlpatterns = [
     path('<int:pk>/edit/',RoutedsUpdateView.as_view(), name='routeds_edit'),
     path('<int:pk>/', RoutedsDetailView.as_view(), name='routeds_detail'),
     path('<int:pk>/delete/', RoutedsDeleteView.as_view(), name='routeds_detail'),
+    path('search/', SearchRdsView.as_view(), name='search'),
     
 ]

@@ -2,10 +2,10 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<h1>New Rds</h1>
 
+<div class="container m-sm-2">
 
-<div class="center-block">
+    <h1>New Rds</h1>
     <form  method="post">
         {% csrf_token %}
         {{ form|crispy }}

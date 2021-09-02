@@ -16,6 +16,7 @@
                 <th>Nombre del Cliente</th>
                 <th>N. de Linea</th>
                 <th>Estado</th>
+                <th>Editar</th>
             </tr>
             {% for rd in object_list %}
             <tr>
@@ -26,7 +27,7 @@
                 <td>{{rd.client}}</td>
                 <td>{{rd.numline}}</td>
                 <td>{{rd.status}}</td>
-                <td><a class="nav-item nav-link" href="" aria-label="Login">
+                <td><a class="nav-item nav-link" href="{{rd.pk}}/edit/" aria-label="Login">
                         <i class="fa fa-pencil" aria-hidden="true"></i></a></td>
             </tr>
             {% endfor %}

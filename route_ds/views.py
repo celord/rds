@@ -20,7 +20,7 @@ class RoutedsDetailView(LoginRequiredMixin, DetailView):
 class RoutedsUpdateView(LoginRequiredMixin, UpdateView):
     model = RouteDs
     login_url = 'login'
-    fields = ('rd', 'tec', 'eventum', 'client', 'numline')
+    fields = ('rd', 'tec', 'eventum', 'client','status', 'numline')
     template_name = 'routeds_update.html'
     success_url = reverse_lazy('home')
 

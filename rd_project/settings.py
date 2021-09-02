@@ -36,6 +36,7 @@ INSTALLED_APPS = [
 
     #3rd Party
     'crispy_forms',
+    'bootstrap4',
 
     'django.contrib.admin',
     'django.contrib.auth',

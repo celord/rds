@@ -1,12 +1,23 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
+{% load bootstrap4 %}
 {% block title %}Log in{% endblock title %}
 
 {% block content %}
+<div class="container m-sm-2">
   <h2>Log In</h2>
-  <form  method="post">
-      {% csrf_token %}
-      {{ form|crispy }}
-      <button type="submit" class="btn btn-primary">Log In</button>
+  <form class="container" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+    {% buttons %}
+    <p>
+      <button type="submit" class="btn btn-success m-lg-2">Log In</button>
+    </p>
+    
+    
+    {% endbuttons %}
   </form>
+</div>
+  
+
 {% endblock content %}
