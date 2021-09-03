@@ -5,7 +5,7 @@ from django.urls import reverse
 
 
 class RouteDs(models.Model):
-    rd = models.CharField(max_length=50, null=False)
+    rd = models.CharField(max_length=50, null=False, unique=True)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     tec = models.CharField(max_length=100, null=False)
     eventum = models.IntegerField(null=False)
