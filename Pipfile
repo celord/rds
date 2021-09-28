@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 django = "*"
+django-crispy-forms = "*"
+django-bootstrap4 = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
