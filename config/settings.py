@@ -37,16 +37,29 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     
     #Locals
     'accounts',
     'pages',
+    'routeds',
+    'allauth',
+    'allauth.account',
     
     #Third Party Apps
     'bootstrap4',
     'crispy_forms',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+#Django Allauth Configuration
+ACCOUNT_LOGOUT_REDIRECT = 'home'
+SITE_ID=1
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

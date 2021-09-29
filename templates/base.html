@@ -54,7 +54,7 @@
                                 Menu
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
+                                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
                                 <!-- 
                                 <li>
                                     <hr class="dropdown-divider">
@@ -74,7 +74,8 @@
                     <form action="#" method="get" class="d-flex"></form>
 
                         <div class="container">{{ user.username }}</div>
-                        <div class="container"><a href="{% url 'logout' %}">Log Out</a></div>
+                        <div class="container"><a href="{% url 'account_logout' %}">Log Out</a></div>
+                        <div class="container"><a href="{% url 'account_login' %}">Log In</a></div>
                         <input name="q" class="form-control me-2" type="text" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
