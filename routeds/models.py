@@ -11,22 +11,22 @@ class Eventum(models.Model):
         return str(self.eventum)
 
 
-class NumLine(models.Model):
-    numline = models.IntegerField()
-
-    def __str__(self):
-        return str(self.numline)
-
 class Client(models.Model):
     name = models.CharField(max_length=50)
-    numline = models.ForeignKey(NumLine, on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.name
 
+class NumLine(models.Model):
+    numline = models.IntegerField()
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, default=None)
+
+    def __str__(self):
+        return str(self.numline)
+
 class Tec(models.Model):
-    name = models.CharField(max_length=100 )
-    last_name = models.CharField(max_length=100 )
+    name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
 
     def __str__(self):
         return f"{self.name} {self.last_name}"
@@ -36,8 +36,10 @@ class RouteDistinguiser(models.Model):
     rd = models.CharField(max_length=50, null=False, unique=True)
     tec = models.ForeignKey(Tec, on_delete=models.CASCADE, default=None)
     client = models.ForeignKey(Client, on_delete=models.CASCADE, default=None)
-    eventum = models.ForeignKey(Eventum, on_delete=models.CASCADE, default=None)
-    numline = models.ForeignKey(NumLine, on_delete=models.CASCADE, default=None)
+    eventum = models.ForeignKey(
+        Eventum, on_delete=models.CASCADE, default=None)
+    numline = models.ForeignKey(
+        NumLine, on_delete=models.CASCADE, default=None)
     date = models.DateTimeField(auto_now_add=True)
 
     LIBRE = 'Libre'
